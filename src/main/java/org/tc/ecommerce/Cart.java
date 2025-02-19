@@ -5,17 +5,18 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 public class Cart {
-    private int cartId;
+    private String cartId;
     private List<Product> products;
 
     public Cart() {
-        this.cartId = 1; //hardcoded right now, it will be fetch from db with card sequence
+        this.cartId = UUID.randomUUID().toString(); // Auto-generate UUID as String
         this.products = new ArrayList<>();
     }
 
