@@ -13,12 +13,12 @@ public class CustomerUser extends User {
     private OrderService orderService;
     private Order order;
 
-    public CustomerUser(final String name, final String email, final Cart cart,
-                final OrderService orderService) {
+    public CustomerUser(final String name, final String email, final OrderService orderService) {
         super(name, email);
-        this.cart = cart;
+        this.cart = new Cart();  // The Cart is created immediately when the constructor is called
         this.orderService = orderService;
     }
+
 
     public  void addToCart(final Product product) {
         cart.addProduct(product);
