@@ -23,4 +23,8 @@ public class OrderService {
     public List<Order> getAllOrderDetails(final String email) {
         return repository.getOrdersDetailsForSpecificEmail(email);
     }
+
+    public List<Order> getAllOrders() {
+        return repository.getAllOrders();
+    }
 }

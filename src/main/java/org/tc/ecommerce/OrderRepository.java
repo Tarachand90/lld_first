@@ -39,4 +39,13 @@ public class OrderRepository {
         }
         return List.copyOf(orderList);
     }
+
+    public List<Order> getAllOrders() {
+        List<Order> allOrders = new ArrayList<>();
+        for(List<Order> orders : orderMap.values()) {
+            allOrders.addAll(orders);
+        }
+
+        return allOrders;
+    }
 }

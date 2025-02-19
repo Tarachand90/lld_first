@@ -1,25 +1,21 @@
-package org.tc.ecommerce;
+package org.tc.ecommerce.users;
 
-import lombok.*;
+import org.tc.ecommerce.Cart;
+import org.tc.ecommerce.Order;
+import org.tc.ecommerce.OrderService;
+import org.tc.ecommerce.Product;
 
 import java.util.List;
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+public class CustomerUser extends User {
 
-public class User {
-    private String name;
-    private String email;
     private Cart cart;
     private OrderService orderService;
     private Order order;
 
-    public User(final String name, final String email, final Cart cart,
+    public CustomerUser(final String name, final String email, final Cart cart,
                 final OrderService orderService) {
-        this.name = name;
-        this.email = email;
+        super(name, email);
         this.cart = cart;
         this.orderService = orderService;
     }
@@ -33,6 +29,10 @@ public class User {
     }
 
     public void placeOrder() {
+        if(cart == null || cart.getProducts().isEmpty()) {
+            System.out.println("Cart is empty. Cannot place order.");
+            return;
+        }
         order = new Order(cart.getProducts());
         orderService.addOrder(order, email);
 
