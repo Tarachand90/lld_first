@@ -15,17 +15,21 @@ public class CustomerUser extends User {
 
     public CustomerUser(final String name, final String email, final OrderService orderService) {
         super(name, email);
-        this.cart = new Cart();  // The Cart is created immediately when the constructor is called
         this.orderService = orderService;
     }
 
-
+    private Cart getCart() {
+        if(cart == null) {
+            cart = new Cart();
+        }
+        return  cart;
+    }
     public  void addToCart(final Product product) {
-        cart.addProduct(product);
+        getCart().addProduct(product);
     }
 
     public void removeFromCart(final Product product) {
-        cart.removeProduct(product);
+        getCart().removeProduct(product);
     }
 
     public void placeOrder() {
@@ -36,8 +40,8 @@ public class CustomerUser extends User {
         order = new Order(cart.getProducts());
         orderService.addOrder(order, email);
 
-        //then remove all the items from the cart
-        cart.clear();
+        // Clear the Cart after placing the order
+        getCart().clear();
     }
 
     public void cancelOrder() {
