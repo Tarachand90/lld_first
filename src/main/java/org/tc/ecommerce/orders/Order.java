@@ -1,6 +1,7 @@
-package org.tc.ecommerce;
+package org.tc.ecommerce.orders;
 
 import lombok.*;
+import org.tc.ecommerce.Product;
 
 import java.util.Date;
 import java.util.List;
@@ -11,10 +12,10 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class Order {
-    private String orderId;
-    private Date orderDate;
-    private boolean isCanclled;
-    private List<Product> products;
+    protected String orderId;
+    protected Date orderDate;
+    protected boolean isCanclled;
+    protected List<Product> products;
 
     public  Order(final List<Product> products) {
         this.orderId = UUID.randomUUID().toString(); // Auto-generate UUID as String

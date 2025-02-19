@@ -1,6 +1,6 @@
 package org.tc.ecommerce.users;
 
-import org.tc.ecommerce.Order;
+import org.tc.ecommerce.orders.Order;
 import org.tc.ecommerce.OrderService;
 
 public class AdminUser extends User{

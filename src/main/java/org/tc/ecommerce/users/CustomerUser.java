@@ -1,7 +1,7 @@
 package org.tc.ecommerce.users;
 
 import org.tc.ecommerce.Cart;
-import org.tc.ecommerce.Order;
+import org.tc.ecommerce.orders.Order;
 import org.tc.ecommerce.OrderService;
 import org.tc.ecommerce.Product;
 
