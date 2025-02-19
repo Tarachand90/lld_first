@@ -1,9 +1,15 @@
 package org.tc.ecommerce;
 
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Cart {
     private int cartId;
     private List<Product> products;
@@ -27,5 +33,9 @@ public class Cart {
 
     public void clear() {
         products.clear();
+    }
+
+    public List<Product> viewCart() {
+        return products;
     }
 }
