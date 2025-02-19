@@ -16,6 +16,7 @@ public class Cart {
     private List<Product> products;
 
     public Cart() {
+        
         this.cartId = UUID.randomUUID().toString(); // Auto-generate UUID as String
         this.products = new ArrayList<>();
     }
